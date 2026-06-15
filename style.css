@@ -1,0 +1,819 @@
+/* Importation de la police Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Style pour toute la page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(17, 24, 39); /* Noir/Gris fonce */
+    color: rgb(249, 250, 251); /* Blanc casse */
+}
+
+/* On enleve le soulignement des liens */
+a {
+    text-decoration: none;
+}
+
+/* Utile pour javascript pour cacher des trucs */
+.hidden {
+    display: none !important;
+}
+
+/* Le menu de navigation en haut */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(17, 24, 39);
+    border-bottom: 1px solid rgb(55, 65, 81);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 100; /* pour pas que le texte passe au dessus quand on defile */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Le h1 du menu */
+.logo-nom {
+    font-size: 24px;
+    margin: 0;
+    color: rgb(168, 85, 247);
+}
+
+.les-liens {
+    display: none; /* cache sur telephone */
+    align-items: center;
+}
+
+.les-liens a {
+    margin-left: 15px;
+    color: rgb(209, 213, 219);
+    font-size: 14px;
+}
+
+.les-liens a:hover {
+    color: rgb(168, 85, 247); /* Ca devient violet ! */
+}
+
+/* Les boutons dans le menu */
+.boutons-droite-mobile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bouton-telephone, .bouton-theme {
+    background-color: transparent;
+    border: none;
+    color: rgb(249, 250, 251);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.les-liens .bouton-theme {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+
+/* Le menu quand on clique sur le burger */
+.menu-cache {
+    background-color: rgb(17, 24, 39);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* C'est activé par le JS pour l'afficher */
+.menu-cache:not(.hidden) {
+    display: flex;
+}
+
+.menu-cache a {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.menu-cache a:hover {
+    color: rgb(168, 85, 247);
+}
+
+/* ---- Les styles réutilisables (Les sections) ---- */
+.section-noire {
+    background-color: rgb(17, 24, 39);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.section-grise {
+    background-color: rgb(31, 41, 55);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.titre-section {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 50px;
+     color: rgb(135, 47, 179);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---- Section 1 : Accueil ---- */
+.section-accueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.gros-titre {
+    font-size: 40px;
+}
+
+.mon-nom {
+    color: rgb(168, 85, 247);
+}
+
+.sous-titre {
+    font-size: 20px;
+    color: rgb(156, 163, 175);
+    margin-bottom: 40px;
+}
+
+.les-boutons {
+    margin-top: 20px;
+}
+
+.bouton-violet {
+    background-color: rgb(168, 85, 247);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    margin-right: 15px;
+    display: inline-block;
+}
+.bouton-violet:hover {
+    background-color: rgb(216, 180, 254);
+    color: black;
+}
+
+.bouton-transparent {
+    border: 2px solid rgb(168, 85, 247);
+    color: rgb(168, 85, 247);
+    padding: 10px 25px;
+    border-radius: 50px;
+    display: inline-block;
+}
+.bouton-transparent:hover {
+    background-color: rgb(168, 85, 247);
+    color: white;
+}
+
+/* ---- Section 2 : À propos ---- */
+.texte-apropos {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: rgb(209, 213, 219);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ---- Section 4 et 5 : Formations et Expériences ---- */
+.liste-parcours {
+    display: flex;
+    flex-direction: column;
+}
+.element-parcours {
+    background-color: rgb(17, 24, 39); 
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid rgb(168, 85, 247);
+    margin-bottom: 20px;
+}
+.section-noire .element-parcours {
+    background-color: rgb(31, 41, 55); /* inverser le fond pour qu'il soit visible */
+}
+
+.element-parcours h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: rgb(168, 85, 247);
+}
+.annee {
+    color: rgb(156, 163, 175);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* ---- Section 6 : Mes projets ---- */
+.container-projets {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grille-projets {
+    display: flex;
+    flex-direction: column;
+}
+
+.carte-projet {
+    background-color: rgb(17, 24, 39);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
+}
+.carte-projet:hover {
+    transform: translateY(-5px); /* le petit effet au survol */
+}
+
+/* Backgrounds des 3 images temporaires */
+.image-projet-1 {
+    height: 200px;
+    background-color: rgb(192, 132, 252);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.image-projet-2 {
+    height: 200px;
+    background-color: rgb(96, 165, 250);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.image-projet-3 {
+    height: 200px;
+    background-color: rgb(250, 204, 21);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.texte-projet {
+    padding: 20px;
+}
+
+.texte-projet h3 {
+    margin-top: 0;
+}
+
+.texte-projet p {
+    color: rgb(156, 163, 175);
+}
+
+.les-tags {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.les-tags span {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.tag-violet { background-color: rgb(55, 65, 81); color: rgb(192, 132, 252); }
+.tag-bleu { background-color: rgb(55, 65, 81); color: rgb(147, 197, 253); }
+.tag-jaune { background-color: rgb(55, 65, 81); color: rgb(253, 224, 71); }
+
+.lien-projet {
+    display: block;
+    margin-top: 20px;
+    color: rgb(168, 85, 247);
+}
+.lien-projet:hover {
+    color: rgb(216, 180, 254);
+}
+
+/* ---- Section 3 : Competences ---- */
+.une-competence {
+    margin-bottom: 25px;
+}
+
+.titre-competence {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.pourcentage {
+    color: rgb(168, 85, 247);
+}
+
+.barre-grise {
+    width: 100%;
+    background-color: rgb(55, 65, 81);
+    height: 10px;
+    border-radius: 10px;
+}
+
+.barre-violette {
+    background-color: rgb(168, 85, 247);
+    height: 10px;
+    border-radius: 10px;
+}
+
+/* ---- Section 7 : Témoignages ---- */
+.grille-temoignages {
+    display: flex;
+    flex-direction: column;
+}
+.carte-temoignage {
+    background-color: rgb(31, 41, 55);
+    padding: 20px;
+    border-radius: 10px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+.auteur-temoignage {
+    text-align: right;
+    color: rgb(168, 85, 247);
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 10px;
+}
+
+/* ---- Section 8 : Contact (Nouveau Design Premium) ---- */
+.section-contact {
+    background-color: rgb(17, 24, 39);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.container-contact {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Colonne Gauche : Infos de contact */
+.contact-info {
+    flex: 1;
+}
+
+.contact-titre {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: rgb(249, 250, 251);
+}
+
+.contact-description {
+    font-size: 16px;
+    color: rgb(156, 163, 175);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.contact-cartes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.carte-info {
+    display: flex;
+    align-items: center;
+    background-color: rgba(31, 41, 55, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px 20px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.carte-info:hover {
+    transform: translateY(-2px);
+    background-color: rgba(31, 41, 55, 0.6);
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carte-lien {
+    cursor: pointer;
+}
+
+.icone-conteneur {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    margin-right: 16px;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Gradients d'icônes spécifiques */
+.icone-email {
+    background: linear-gradient(135deg, rgb(236, 72, 153), rgb(219, 39, 119)); /* Rose */
+}
+
+.icone-telephone {
+    background: linear-gradient(135deg, rgb(16, 185, 129), rgb(5, 150, 105)); /* Vert */
+}
+
+.icone-adresse {
+    background: linear-gradient(135deg, rgb(6, 182, 212), rgb(8, 145, 178)); /* Cyan */
+}
+
+.icone-linkedin {
+    background: linear-gradient(135deg, rgb(37, 99, 235), rgb(29, 78, 216)); /* Bleu LinkedIn */
+}
+
+.icone-github {
+    background: linear-gradient(135deg, rgb(75, 85, 99), rgb(31, 41, 55)); /* Gris foncé GitHub */
+}
+
+.carte-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.carte-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(156, 163, 175);
+    margin-bottom: 4px;
+}
+
+.carte-valeur {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(249, 250, 251);
+    word-break: break-all;
+}
+
+.carte-valeur a {
+    color: inherit;
+}
+
+.carte-valeur a:hover {
+    color: rgb(168, 85, 247);
+}
+
+/* Colonne Droite : Formulaire */
+.contact-formulaire-conteneur {
+    flex: 1;
+    background-color: rgba(31, 41, 55, 0.25);
+    border: 1px solid rgba(75, 85, 99, 0.2);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-ligne {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.half {
+    width: 100%;
+}
+
+.groupe-input {
+    margin-bottom: 20px;
+}
+
+.groupe-input label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(209, 213, 219);
+    margin-bottom: 8px;
+}
+
+.groupe-input input, .groupe-input textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(75, 85, 99, 0.4);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.groupe-input input:focus, .groupe-input textarea:focus {
+    outline: none;
+    border-color: rgb(168, 85, 247);
+    background-color: rgba(17, 24, 39, 0.9);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+}
+
+/* Bouton Envoyer Premium */
+.bouton-envoyer-nouveau {
+    width: 100%;
+    background: linear-gradient(135deg, rgb(37, 99, 235), rgb(168, 85, 247));
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.bouton-envoyer-nouveau:hover {
+    background: linear-gradient(135deg, rgb(59, 130, 246), rgb(192, 132, 252));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+}
+
+.bouton-envoyer-nouveau:active {
+    transform: translateY(0);
+}
+
+/* Bouton Retour en haut */
+.bouton-retour-haut {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(168, 85, 247);
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.bouton-retour-haut.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bouton-retour-haut:hover {
+    background-color: rgb(192, 132, 252);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(168, 85, 247, 0.5);
+}
+
+footer {
+    background-color: rgb(3, 7, 18);
+    text-align: center;
+    padding: 30px;
+    color: rgb(156, 163, 175);
+}
+
+
+/* ========================================================
+   MODE CLAIR (LIGHT MODE) 
+   C'est ajouté par le JS en mettant ".mode-clair" sur <body>
+======================================================== */
+
+.mode-clair {
+    background-color: rgb(243, 244, 246); /* Fond très gris clair */
+    color: rgb(17, 24, 39); /* Texte noir/gris très foncé */
+}
+
+.mode-clair .navbar {
+    background-color: rgb(255, 255, 255); /* Navbar toute blanche */
+}
+
+.mode-clair .menu-cache {
+    background-color: rgb(243, 244, 246);
+}
+
+.mode-clair .menu-cache a {
+    color: rgb(17, 24, 39);
+}
+
+.mode-clair .les-liens a {
+    color: rgb(55, 65, 81);
+}
+
+.mode-clair .bouton-telephone,
+.mode-clair .bouton-theme {
+    color: rgb(17, 24, 39); /* Le soleil/lune devient foncé */
+}
+
+/* Inversion des fonds de sections */
+.mode-clair .section-noire {
+    background-color: rgb(255, 255, 255); /* Blanc */
+}
+
+.mode-clair .section-grise {
+    background-color: rgb(243, 244, 246); /* Gris clair */
+}
+
+.mode-clair .element-parcours,
+.mode-clair .carte-projet,
+.mode-clair .carte-temoignage {
+    background-color: rgb(255, 255, 255); /* Boîtes blanches */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+}
+
+.mode-clair .section-noire .element-parcours,
+.mode-clair .section-noire .carte-temoignage {
+    background-color: rgb(243, 244, 246); /* Boite grise si fond blanc */
+}
+
+.mode-clair .texte-projet p,
+.mode-clair .sous-titre,
+.mode-clair .texte-apropos,
+.mode-clair .annee {
+    color: rgb(75, 85, 99); /* Texte secondaire en gris moyen */
+}
+
+.mode-clair .groupe-input input, 
+.mode-clair .groupe-input textarea {
+    background-color: rgb(255, 255, 255);
+    color: rgb(17, 24, 39);
+    border: 1px solid rgb(209, 213, 219); /* Bordure légère */
+}
+
+.mode-clair footer {
+    background-color: rgb(229, 231, 235);
+    color: rgb(75, 85, 99);
+}
+
+/* Mode Clair pour la Section Contact */
+.mode-clair .section-contact {
+    background-color: rgb(243, 244, 246);
+}
+
+.mode-clair .contact-titre {
+    color: rgb(17, 24, 39);
+}
+
+.mode-clair .contact-description {
+    color: rgb(75, 85, 99);
+}
+
+.mode-clair .carte-info {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+    color: rgb(17, 24, 39);
+}
+
+.mode-clair .carte-info:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.1);
+}
+
+.mode-clair .carte-label {
+    color: rgb(107, 114, 128);
+}
+
+.mode-clair .carte-valeur {
+    color: rgb(17, 24, 39);
+}
+
+.mode-clair .contact-formulaire-conteneur {
+    background-color: rgb(255, 255, 255);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.mode-clair .groupe-input label {
+    color: rgb(55, 65, 81);
+}
+
+.mode-clair .groupe-input input,
+.mode-clair .groupe-input textarea {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(209, 213, 219);
+    color: rgb(17, 24, 39);
+}
+
+.mode-clair .groupe-input input:focus,
+.mode-clair .groupe-input textarea:focus {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(168, 85, 247);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+
+/* Media Queries pour le Responsive sur Ordinateur */
+@media screen and (min-width: 768px) {
+    .bouton-telephone {
+        display: none;
+    }
+    
+    .boutons-droite-mobile {
+        display: none; /* Sur ordi on cache les boutons de telephone (le JS gèrera l'autre bouton sun) */
+    }
+    
+    .les-liens {
+        display: flex; /* On affiche les vrais liens sur ordi */
+    }
+    
+    .gros-titre {
+        font-size: 60px;
+    }
+    
+    .grille-projets {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .carte-projet {
+        width: 30%; /* 3 sur une ligne */
+    }
+    
+    .grille-competences {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .colonne-gauche {
+        width: 45%;
+    }
+    
+    .colonne-droite {
+        width: 45%;
+    }
+    
+    .liste-parcours {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .element-parcours {
+        width: 48%;
+    }
+
+    .grille-temoignages {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .carte-temoignage {
+        width: 48%;
+    }
+
+    /* Nouveau contact section responsive pour écran large */
+    .container-contact {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 48px;
+    }
+    
+    .contact-info {
+        flex: 1;
+    }
+    
+    .contact-formulaire-conteneur {
+        flex: 1.2;
+    }
+    
+    .form-ligne {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .half {
+        width: 50%;
+    }
+}
+
+
