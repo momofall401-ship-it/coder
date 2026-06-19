@@ -3,380 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamadou Cheikh Fall - Mon Portfolio</title>
-    
-    <!-- Pour les petites icones de facebook github etc -->
+    <meta name="description" content="Portfolio de Mamadou Cheikh Fall - Administration Systèmes et Réseaux, Cybersécurité, DevOps">
+    <meta property="og:title" content="Mamadou Cheikh Fall - Portfolio">
+    <meta property="og:description" content="Administration Systèmes et Réseaux, Cybersécurité & DevOps">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://momofall401-ship-it.github.io/momo">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+    <title>Mamadou Cheikh Fall - Portfolio</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Pour relier mon fichier html avec mon Css -->
     <link rel="stylesheet" href="style.css">
-    <!-- Pour que la page descende en douceur quand on clique sur le menu -->
     <style>
         html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
 
-    <!-- Barre de menu -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navigation principale">
         <div class="nav-container">
-            <!-- Nom raccourci en haut à gauche ! -->
-            <h1 class="logo-nom">MCF</h1>
-            
-            <div class="les-liens">
-                <a href="#accueil">Accueil</a>
-                <a href="#a-propos">À propos</a>
-                <a href="#competences">Compétences</a>
-                <a href="#formations">Formations</a>
-                <a href="#experience">Expérience</a>
-                <a href="#projets">Projets</a>
-                <a href="#temoignages">Témoignages</a>
-                <a href="#contact">Contact </a>
-                
-                <!-- Bouton Soleil/Lune Ordinateur -->
-                <button class="bouton-theme" onclick="changerMode()"><i class="fas fa-sun icone-theme"></i></button>
+            <div class="logo-groupe">
+                <h1 class="logo-nom">MCF</h1>
+                <img src="assets/profile.jpg" alt="Mamadou Cheikh Fall" class="navbar-photo">
             </div>
-            
+
+            <div class="les-liens" role="menubar">
+                <a href="#accueil" role="menuitem">Accueil</a>
+                <a href="#a-propos" role="menuitem">À propos</a>
+                <a href="#competences" role="menuitem">Compétences</a>
+                <a href="#formations" role="menuitem">Formations</a>
+                <a href="#experience" role="menuitem">Expérience</a>
+                <a href="#projets" role="menuitem">Projets</a>
+                <a href="#temoignages" role="menuitem">Témoignages</a>
+                <a href="#contact" role="menuitem">Contact</a>
+
+                <button class="bouton-theme" id="theme-toggle-desktop" aria-label="Changer le thème sombre/clair">
+                    <i class="fas fa-sun icone-theme"></i>
+                </button>
+            </div>
+
             <div class="boutons-droite-mobile">
-                <!-- Bouton Soleil/Lune Mobile -->
-                <button class="bouton-theme" onclick="changerMode()"><i class="fas fa-sun icone-theme"></i></button>
-                
-                <!-- Bouton pour le menu telephone -->
-                <button id="mobile-menu-btn" class="bouton-telephone" onclick="toggleMenu()">
+                <button class="bouton-theme" id="theme-toggle-mobile" aria-label="Changer le thème sombre/clair">
+                    <i class="fas fa-sun icone-theme"></i>
+                </button>
+
+                <button id="mobile-menu-btn" class="bouton-telephone" aria-label="Ouvrir le menu" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Menu telephone -->
-    <div id="mobile-menu" class="menu-cache" style="display: none;">
-        <a href="#accueil" class="mobile-menu-link" onclick="fermerMenu()">Accueil</a>
-        <a href="#a-propos" class="mobile-menu-link" onclick="fermerMenu()">À propos</a>
-        <a href="#competences" class="mobile-menu-link" onclick="fermerMenu()">Compétences</a>
-        <a href="#formations" class="mobile-menu-link" onclick="fermerMenu()">Formations</a>
-        <a href="#experience" class="mobile-menu-link" onclick="fermerMenu()">Expérience</a>
-        <a href="#projets" class="mobile-menu-link" onclick="fermerMenu()">Projets</a>
-        <a href="#temoignages" class="mobile-menu-link" onclick="fermerMenu()">Témoignages</a>
-        <a href="#contact" class="mobile-menu-link" onclick="fermerMenu()">Contact</a>
+    <div id="mobile-menu" class="menu-cache hidden" role="dialog" aria-modal="true" aria-label="Menu de navigation">
+        <a href="#accueil" class="mobile-menu-link">Accueil</a>
+        <a href="#a-propos" class="mobile-menu-link">À propos</a>
+        <a href="#competences" class="mobile-menu-link">Compétences</a>
+        <a href="#formations" class="mobile-menu-link">Formations</a>
+        <a href="#experience" class="mobile-menu-link">Expérience</a>
+        <a href="#projets" class="mobile-menu-link">Projets</a>
+        <a href="#temoignages" class="mobile-menu-link">Témoignages</a>
+        <a href="#contact" class="mobile-menu-link">Contact</a>
     </div>
 
-    <!-- 1. Accueil -->
-    <section id="accueil" class="section-accueil">
-        <div class="boite-centrale">
-            <h1 class="gros-titre">
-                Salut, moi c'est <span class="mon-nom">Mamadou Cheikh Fall</span>
-            </h1>
-            <p class="sous-titre">
-                Je conçois et administre des infrastructures en Systèmes,
-                 Réseaux et Télécommunications, avec une spécialisation
-                  dans la gestion des réseaux IP, l’administration des 
-                  systèmes, la cybersécurité, ainsi que l’intégration 
-                  des pratiques DevOps pour l’automatisation et l’optimisation
-                   des environnements informatiques.
-            </p>
-            <div class="les-boutons">
-                <a href="#projets" class="bouton-violet">Voir mes projets</a>
-                <a href="#contact" class="bouton-transparent">Discutons-en !</a>
-                 <a href="#contact" class="bouton-transparent">Me contacter</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. À propos -->
-    <section id="a-propos" class="section-grise">
-        <div class="container text-center">
-            <h2 class="titre-section">À propos de moi</h2>
-            <p class="texte-apropos">
-                Passionné d'informatique, je me spécialise dans la gestion et l'administration des infrastructures systèmes et réseaux. Au-delà de l'administration classique, je suis profondément passionné par le développement de l'intelligence artificielle et les défis de la cybersécurité. Mon but est de concevoir des environnements robustes, sécurisés et intelligents !
-            </p>
-        </div>
-    </section>
-
-    <!-- 3. Compétences -->
-    <section id="competences" class="section-noire">
-        <div class="container">
-            <h2 class="titre-section">Mes Compétences</h2>
-            
-            <div class="grille-competences">
-                <!-- Colonne 1 -->
-                <div class="colonne-gauche">
-                    <div class="une-competence">
-                        <div class="titre-competence">
-                            <span>HTML/CSS/JavaScript</span>
-                            <span class="pourcentage">90%</span>
-                        </div>
-                        <div class="barre-grise">
-                            <div class="barre-violette" style="width: 90%;"></div>
-                        </div>
-                    </div>
-        
-                    <div class="une-competence">
-                        <div class="titre-competence">
-                            <span>Java (et la POO)</span>
-                            <span class="pourcentage">80%</span>
-                        </div>
-                        <div class="barre-grise">
-                            <div class="barre-violette" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="une-competence">
-                        <div class="titre-competence">
-                            <span>PHP pour les backends</span>
-                            <span class="pourcentage">75%</span>
-                        </div>
-                        <div class="barre-grise">
-                            <div class="barre-violette" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Colonne 2 -->
-                <div class="colonne-droite">
-                    <div class="une-competence">
-                        <div class="titre-competence">
-                            <span>Gestion de Bases de données</span>
-                            <span class="pourcentage">85%</span>
-                        </div>
-                        <div class="barre-grise">
-                            <div class="barre-violette" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="une-competence">
-                        <div class="titre-competence">
-                            <span>Administration Windows/Linux</span>
-                            <span class="pourcentage">80%</span>
-                        </div>
-                        <div class="barre-grise">
-                            <div class="barre-violette" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="une-competence">
-                        <div class="titre-competence">
-                            <span>Routage et Commutation</span>
-                            <span class="pourcentage">85%</span>
-                        </div>
-                        <div class="barre-grise">
-                            <div class="barre-violette" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Formations -->
-    <section id="formations" class="section-grise">
-        <div class="container">
-            <h2 class="titre-section">Mes Formations</h2>
-            <div class="liste-parcours">
-                <div class="element-parcours">
-                    <h3>Licence 3 en Informatique (En cours)</h3>
-                    <p class="annee">2023 - Présent</p>
-                    <p>Formation universitaire approfondie axée sur l'administration des systèmes et réseaux, la cybersécurité, et le développement d'applications (HTML, CSS, JS, PHP).</p>
-                </div>
-                <div class="element-parcours">
-                    <h3>Baccalauréat Scientifique</h3>
-                    <p class="annee">2023</p>
-                    <p>Option Maths, où j'ai commencé à développer un esprit logique.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Expérience -->
-    <section id="experience" class="section-noire">
-        <div class="container">
-            <h2 class="titre-section">Mon Expérience</h2>
-            <div class="liste-parcours">
-                <div class="element-parcours">
-                    <h3>Technicien Réseaux et Systèmes</h3>
-                    <p class="annee">2023 - Aujourd'hui</p>
-                    <p>Administration, sécurisation et gestion d'infrastructures informatiques, avec une forte passion pour l'intégration de l'intelligence artificielle et les solutions de cybersécurité.</p>
-                </div>
-                <div class="element-parcours">
-                    <h3>Projets Autodidactes</h3>
-                    <p class="annee">En continu</p>
-                    <p>Création de pages pour m'exercer sur mes langages préférés (HTML/CSS & PHP).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Projets -->
-    <section id="projets" class="section-grise">
-        <div class="container-projets">
-            <h2 class="titre-section">Ce que j'ai construit récemment</h2>
-            
-            <div class="grille-projets">
-                <div class="carte-projet">
-                    <div class="image-projet-1"></div>
-                    <div class="texte-projet">
-                        <h3>Application Web Dynamique</h3>
-                        <p>Une application web complète intégrant une interface interactive et un traitement de données.</p>
-                        <div class="les-tags">
-                            <span class="tag-violet">PHP</span>
-                            <span class="tag-bleu">JavaScript</span>
-                            <span class="tag-jaune">HTML/CSS</span>
-                        </div>
-                        <a href="#" class="lien-projet">Voir le site <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="carte-projet">
-                    <div class="image-projet-2"></div>
-                    <div class="texte-projet">
-                        <h3>Outil Javascript</h3>
-                        <p>Un truc fait de A à Z par moi !</p>
-                        <div class="les-tags">
-                            <span class="tag-bleu">JavaScript</span>
-                        </div>
-                        <a href="#" class="lien-projet">Regarder le code <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="carte-projet">
-                    <div class="image-projet-3"></div>
-                    <div class="texte-projet">
-                        <h3>Intégration d'une maquette</h3>
-                        <p>C'est beau et ça marche partout.</p>
-                        <div class="les-tags">
-                            <span class="tag-jaune">HTML/CSS</span>
-                        </div>
-                        <a href="#" class="lien-projet">Afficher le site <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Témoignages -->
-    <section id="temoignages" class="section-noire">
-        <div class="container">
-            <h2 class="titre-section">Témoignages</h2>
-            <div class="grille-temoignages">
-                <div class="carte-temoignage">
-                    <p>"Mamadou est super motivé et apprend très vite ! C'était un plaisir de travailler avec lui."</p>
-                    <p class="auteur-temoignage">- Dr Diery Ngom</p>
-                </div>
-                <div class="carte-temoignage">
-                    <p>"Un technicien sérieux qui s'investit à fond dans ce qu'il fait."</p>
-                    <p class="auteur-temoignage">- Mouhamadou Balde</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Contact -->
-    <section id="contact" class="section-contact">
-        <div class="container-contact">
-            
-            <!-- Colonne de gauche : Infos de contact -->
-            <div class="contact-info">
-                <h2 class="contact-titre">Restons en contact</h2>
-                <p class="contact-description">
-                    N'hésitez pas à me contacter pour discuter de vos projets ou pour toute collaboration. Je suis toujours ouvert aux nouvelles opportunités et aux défis techniques passionnants.
+    <main>
+        <section id="accueil" class="section-accueil" aria-label="Accueil">
+            <div class="boite-centrale">
+                <h1 class="gros-titre">
+                    Salut, moi c'est <span class="mon-nom">Mamadou Cheikh Fall</span>
+                </h1>
+                <p class="sous-titre">
+                    Je conçois et administre des infrastructures en Systèmes,
+                     Réseaux et Télécommunications, avec une spécialisation
+                      dans la gestion des réseaux IP, l'administration des
+                      systèmes, la cybersécurité, ainsi que l'intégration
+                      des pratiques DevOps pour l'automatisation et l'optimisation
+                      des environnements informatiques.
                 </p>
-                
-                <div class="contact-cartes">
-                    <div class="carte-info">
-                        <div class="icone-conteneur icone-email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="carte-details">
-                            <span class="carte-label">Email</span>
-                            <a href="mailto:momofall401@gmail.com" class="carte-valeur">momofall401@gmail.com</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carte-info">
-                        <div class="icone-conteneur icone-telephone">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="carte-details">
-                            <span class="carte-label">Téléphone</span>
-                            <span class="carte-valeur">+221 78 650 91 47 / +221 76 497 31 94</span>
-                        </div>
-                    </div>
-
-                    <div class="carte-info">
-                        <div class="icone-conteneur icone-adresse">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="carte-details">
-                            <span class="carte-label">Adresse</span>
-                            <span class="carte-valeur">Rufisque, Santhiaba Ndiobene Dakar</span>
-                        </div>
-                    </div>
-
-                    <a href="https://www.linkedin.com/in/mamadou-cheikh-fall-906129369/" target="_blank" class="carte-info carte-lien">
-                        <div class="icone-conteneur icone-linkedin">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <div class="carte-details">
-                            <span class="carte-label">Réseau Professionnel</span>
-                            <span class="carte-valeur">LinkedIn</span>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/momofall401-ship-it/momo" target="_blank" class="carte-info carte-lien">
-                        <div class="icone-conteneur icone-github">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="carte-details">
-                            <span class="carte-label">Code Source</span>
-                            <span class="carte-valeur">GitHub</span>
-                        </div>
-                    </a>
+                <div class="les-boutons">
+                    <a href="#projets" class="bouton-violet">Voir mes projets</a>
+                    <a href="#contact" class="bouton-transparent">Me contacter</a>
                 </div>
             </div>
-            
-            <!-- Colonne de droite : Formulaire -->
-            <div class="contact-formulaire-conteneur">
-                <form id="contact-form" onsubmit="envoyerMessage(event)">
-                    <div class="form-ligne">
-                        <div class="groupe-input half">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
-                        </div>
-                        <div class="groupe-input half">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                        </div>
+        </section>
+
+        <section id="a-propos" class="section-grise" aria-label="À propos de moi">
+            <div class="container">
+                <h2 class="titre-section">À propos de moi</h2>
+                <div class="apropos-contenu">
+                    <div class="apropos-photo">
+                        <img src="assets/profile.jpg" alt="Photo de profil de Mamadou Cheikh Fall" class="photo-profil">
                     </div>
-                    
-                    <div class="groupe-input">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
-                    </div>
-                    
-                    <div class="groupe-input">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="bouton-envoyer-nouveau">
-                        <i class="far fa-envelope"></i> Envoyer le message
-                    </button>
-                </form>
+                    <p class="texte-apropos">
+                        Passionné d'informatique, je me spécialise dans la gestion et l'administration des infrastructures systèmes et réseaux. Au-delà de l'administration classique, je suis profondément passionné par le développement de l'intelligence artificielle et les défis de la cybersécurité. Mon but est de concevoir des environnements robustes, sécurisés et intelligents !
+                    </p>
+                </div>
             </div>
-            
-        </div>
-    </section>
+        </section>
+
+        <section id="competences" class="section-noire" aria-label="Mes compétences">
+            <div class="container">
+                <h2 class="titre-section">Mes Compétences</h2>
+
+                <div class="grille-competences">
+                    <div class="colonne-gauche">
+                        <div class="une-competence">
+                            <div class="titre-competence">
+                                <span>HTML/CSS/JavaScript</span>
+                                <span class="pourcentage">90%</span>
+                            </div>
+                            <div class="barre-grise" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="barre-violette" style="width: 90%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="une-competence">
+                            <div class="titre-competence">
+                                <span>Java (et la POO)</span>
+                                <span class="pourcentage">80%</span>
+                            </div>
+                            <div class="barre-grise" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <div class="barre-violette" style="width: 80%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="une-competence">
+                            <div class="titre-competence">
+                                <span>PHP pour les backends</span>
+                                <span class="pourcentage">75%</span>
+                            </div>
+                            <div class="barre-grise" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="barre-violette" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="colonne-droite">
+                        <div class="une-competence">
+                            <div class="titre-competence">
+                                <span>Gestion de Bases de données</span>
+                                <span class="pourcentage">85%</span>
+                            </div>
+                            <div class="barre-grise" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                <div class="barre-violette" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="une-competence">
+                            <div class="titre-competence">
+                                <span>Administration Windows/Linux</span>
+                                <span class="pourcentage">80%</span>
+                            </div>
+                            <div class="barre-grise" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <div class="barre-violette" style="width: 80%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="une-competence">
+                            <div class="titre-competence">
+                                <span>Routage et Commutation</span>
+                                <span class="pourcentage">85%</span>
+                            </div>
+                            <div class="barre-grise" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                <div class="barre-violette" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formations" class="section-grise" aria-label="Mes formations">
+            <div class="container">
+                <h2 class="titre-section">Mes Formations</h2>
+                <div class="liste-parcours">
+                    <div class="element-parcours">
+                        <h3>Licence 3 en Informatique (En cours)</h3>
+                        <p class="annee">2023 - Présent</p>
+                        <p>Formation universitaire approfondie axée sur l'administration des systèmes et réseaux, la cybersécurité, et le développement d'applications (HTML, CSS, JS, PHP).</p>
+                    </div>
+                    <div class="element-parcours">
+                        <h3>Baccalauréat Scientifique</h3>
+                        <p class="annee">2023</p>
+                        <p>Option Maths, où j'ai commencé à développer un esprit logique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section-noire" aria-label="Mon expérience">
+            <div class="container">
+                <h2 class="titre-section">Mon Expérience</h2>
+                <div class="liste-parcours">
+                    <div class="element-parcours">
+                        <h3>Technicien Réseaux et Systèmes</h3>
+                        <p class="annee">2023 - Aujourd'hui</p>
+                        <p>Administration, sécurisation et gestion d'infrastructures informatiques, avec une forte passion pour l'intégration de l'intelligence artificielle et les solutions de cybersécurité.</p>
+                    </div>
+                    <div class="element-parcours">
+                        <h3>Projets Autodidactes</h3>
+                        <p class="annee">En continu</p>
+                        <p>Création de pages pour m'exercer sur mes langages préférés (HTML/CSS & PHP).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="section-grise" aria-label="Mes projets">
+            <div class="container-projets">
+                <h2 class="titre-section">Ce que j'ai construit récemment</h2>
+
+                <div class="grille-projets">
+                    <article class="carte-projet">
+                        <div class="image-projet-1" role="img" aria-label="Capture d'écran du projet Application Web Dynamique"></div>
+                        <div class="texte-projet">
+                            <h3>Application Web Dynamique</h3>
+                            <p>Une application web complète intégrant une interface interactive et un traitement de données.</p>
+                            <div class="les-tags">
+                                <span class="tag-violet">PHP</span>
+                                <span class="tag-bleu">JavaScript</span>
+                                <span class="tag-jaune">HTML/CSS</span>
+                            </div>
+                            <a href="#" class="lien-projet" aria-label="Voir le projet Application Web Dynamique">
+                                Voir le site <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="carte-projet">
+                        <div class="image-projet-2" role="img" aria-label="Capture d'écran du projet Outil Javascript"></div>
+                        <div class="texte-projet">
+                            <h3>Outil Javascript</h3>
+                            <p>Un truc fait de A à Z par moi !</p>
+                            <div class="les-tags">
+                                <span class="tag-bleu">JavaScript</span>
+                            </div>
+                            <a href="#" class="lien-projet" aria-label="Voir le code du projet Outil Javascript">
+                                Regarder le code <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="carte-projet">
+                        <div class="image-projet-3" role="img" aria-label="Capture d'écran du projet Intégration d'une maquette"></div>
+                        <div class="texte-projet">
+                            <h3>Intégration d'une maquette</h3>
+                            <p>C'est beau et ça marche partout.</p>
+                            <div class="les-tags">
+                                <span class="tag-jaune">HTML/CSS</span>
+                            </div>
+                            <a href="#" class="lien-projet" aria-label="Afficher le projet Intégration d'une maquette">
+                                Afficher le site <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="temoignages" class="section-noire" aria-label="Témoignages">
+            <div class="container">
+                <h2 class="titre-section">Témoignages</h2>
+                <div class="grille-temoignages">
+                    <blockquote class="carte-temoignage">
+                        <p>"Mamadou est super motivé et apprend très vite ! C'était un plaisir de travailler avec lui."</p>
+                        <footer class="auteur-temoignage">- Dr Diery Ngom</footer>
+                    </blockquote>
+                    <blockquote class="carte-temoignage">
+                        <p>"Un technicien sérieux qui s'investit à fond dans ce qu'il fait."</p>
+                        <footer class="auteur-temoignage">- Mouhamadou Balde</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-contact" aria-label="Contact">
+
+            <div class="container-contact">
+
+                <div class="contact-info">
+                    <h2 class="contact-titre">Restons en contact</h2>
+                    <p class="contact-description">
+                        N'hésitez pas à me contacter pour discuter de vos projets ou pour toute collaboration. Je suis toujours ouvert aux nouvelles opportunités et aux défis techniques passionnants.
+                    </p>
+
+                    <div class="contact-cartes">
+                        <div class="carte-info">
+                            <div class="icone-conteneur icone-email" aria-hidden="true">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="carte-details">
+                                <span class="carte-label">Email</span>
+                                <a href="mailto:momofall401@gmail.com" class="carte-valeur">momofall401@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="carte-info">
+                            <div class="icone-conteneur icone-telephone" aria-hidden="true">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="carte-details">
+                                <span class="carte-label">Téléphone</span>
+                                <span class="carte-valeur">+221 78 650 91 47 / +221 76 497 31 94</span>
+                            </div>
+                        </div>
+
+                        <div class="carte-info">
+                            <div class="icone-conteneur icone-adresse" aria-hidden="true">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="carte-details">
+                                <span class="carte-label">Adresse</span>
+                                <span class="carte-valeur">Rufisque, Santhiaba Ndiobene Dakar</span>
+                            </div>
+                        </div>
+
+                        <a href="https://www.linkedin.com/in/mamadou-cheikh-fall-906129369/" target="_blank" rel="noopener noreferrer" class="carte-info carte-lien">
+                            <div class="icone-conteneur icone-linkedin" aria-hidden="true">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="carte-details">
+                                <span class="carte-label">Réseau Professionnel</span>
+                                <span class="carte-valeur">LinkedIn</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/momofall401-ship-it/momo" target="_blank" rel="noopener noreferrer" class="carte-info carte-lien">
+                            <div class="icone-conteneur icone-github" aria-hidden="true">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="carte-details">
+                                <span class="carte-label">Code Source</span>
+                                <span class="carte-valeur">GitHub</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-formulaire-conteneur">
+                    <form id="contact-form" novalidate>
+                        <div class="form-ligne">
+                            <div class="groupe-input half">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+                            </div>
+                            <div class="groupe-input half">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="groupe-input">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                        </div>
+
+                        <div class="groupe-input">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
+                        </div>
+
+                        <div id="form-status" class="form-status hidden" role="alert"></div>
+
+                        <button type="submit" class="bouton-envoyer-nouveau" id="submit-btn">
+                            <i class="far fa-envelope" aria-hidden="true"></i> Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>Fait avec un peu de café et beaucoup de code par Mamadou Cheikh Fall &copy; 2024</p>
     </footer>
 
-    <!-- Bouton Retour en haut -->
-    <button id="retour-haut" class="bouton-retour-haut" onclick="remonterEnHaut()">
+    <button id="retour-haut" class="bouton-retour-haut" aria-label="Retour en haut de page">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Mon javascript -->
     <script src="script.js"></script>
 </body>
 </html>
